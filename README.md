@@ -18,7 +18,7 @@ let Model = neonjs.Model
 
 // Define your models
 class UserModel extends Model {
-  
+
   sayHello () {
     return 'Hello ' + this.name
   }
@@ -35,50 +35,54 @@ run(function * () {
   let user = new User({
     name: 'John Doe'
   })
-  
+
   // No callbacks required :)
   yield user.save()
-  
+
   let users = yield User.find().limit(7).exec()
 })
 ```
 
 ## API
 
-Expressed in [TypeScript](https://www.typescriptlang.org/).
+Expressed in [TypeScript](https://www.typescriptlang.org/) (though I don't use one).
 
 ```typescript
 class Model {
-  
-  static for (db: Nedb): Function {}
-  
+
+  save (): Promise<Model> {}
+
+  remove (): Promise<Model> {}
+
+  static for <T extends Model> (db: Nedb): T {}
+
   static find (query?: Object): ModelCursor {}
 
   static findOne (query?: Object): ModelCursor {}
 
   static count (query?: Object): ModelCursor {}
 
-  static save(models: Array<Model>): Promise {}
-  
-  static remove(models: Array<Model>): Promise {}
+  static save (models: Array<Model>): Promise<Array<Model>> {}
+
+  static remove (models: Array<Model>): Promise<Array<Model>> {}
 }
 
 class ModelCursor {
-  
+
   sort (value): ModelCursor {}
-  
+
   limit (value): ModelCursor {}
-  
+
   skip (value): ModelCursor {}
-  
+
   populate (property, model): ModelCursor {}
-  
-  exec(): Promise {}
+
+  exec(): Promise<any> {}
 }
 
-function run (generator: Function): Promise {}
+function run (generator: Function): Promise<any> {}
 
-run.for = function (array: Array<any>, generator: Function): Promise {}
+run.for = function (array: Array<any>, generator: Function): Promise<Array<any>> {}
 ```
 
 More information later. Stay tuned.
