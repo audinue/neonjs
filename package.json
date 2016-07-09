@@ -1,0 +1,25 @@
+{
+  "name": "neonjs",
+  "version": "1.0.0",
+  "description": "Yet another ODM for NeDB inspired by Mongorito.",
+  "main": "neon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/audinue/neonjs.git"
+  },
+  "keywords": [
+    "odm",
+    "nedb",
+    "database",
+    "mapping"
+  ],
+  "author": "Audi Nugraha <audinue@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/audinue/neonjs/issues"
+  },
+  "homepage": "https://github.com/audinue/neonjs#readme"
+}
