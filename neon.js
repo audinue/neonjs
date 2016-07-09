@@ -77,8 +77,8 @@
       return this
     }
 
-    populate (name, model) {
-      this._populate[name] = model
+    populate (property, model) {
+      this._populate[property] = model
       return this
     }
 

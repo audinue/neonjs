@@ -43,4 +43,42 @@ run(function * () {
 })
 ```
 
+## API
+
+Expressed in [TypeScript](https://www.typescriptlang.org/).
+
+```typescript
+class Model {
+  
+  static for (db: Nedb): Function {}
+  
+  static find (query?: Object): ModelCursor {}
+
+  static findOne (query?: Object): ModelCursor {}
+
+  static count (query?: Object): ModelCursor {}
+
+  static save(models: Array<Model>): Promise {}
+  
+  static remove(models: Array<Model>): Promise {}
+}
+
+class ModelCursor {
+  
+  sort (value): ModelCursor {}
+  
+  limit (value): ModelCursor {}
+  
+  skip (value): ModelCursor {}
+  
+  populate (property, model): ModelCursor {}
+  
+  exec(): Promise {}
+}
+
+function run (generator: Function): Promise {}
+
+run.for = function (array: Array<any>, generator: Function): Promise {}
+```
+
 More information later. Stay tuned.
